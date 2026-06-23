@@ -19,7 +19,7 @@ class AccelerateLapacke < Formula
 
   def install
     # Force compilers recommended by documentation
-    ENV["CC"] = "/usr/bin/cc"
+    ENV["CC"] = ENV.cc
     ENV["FC"] = "#{formula_opt_bin("gcc")}/gfortran"
 
     # Define resource mapping directory
