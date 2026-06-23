@@ -17,6 +17,7 @@ echo "🚀 Bumping $FORMULA_NAME to version $NEW_VERSION..."
 # --write modifies your local workspace file instead of opening a GitHub PR
 brew bump-formula-pr \
   --write \
+  --no-fork \
   --version="$NEW_VERSION" \
   ekrich/tools/$FORMULA_NAME
 
