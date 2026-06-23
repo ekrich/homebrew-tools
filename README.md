@@ -17,7 +17,7 @@ brew "<formula>"
 
 ## Installing `accelerate-lapacke`
 
-The formula to install is `accelerate-lapack`. The reason for this formula is to make it easy to use the [Scala Native slapack library](https://github.com/ekrich/slapack). macOS does not have build in support for `lapacke` but we want to support that C API so it will work for Linux as well. This library shim links to the build in Accelerate Framework for high performance math on macOS.
+The formula to install is `accelerate-lapacke`. The reason for this formula is to make it easy to use the [Scala Native slapack library](https://github.com/ekrich/slapack). macOS does not have build in support for `lapacke` but we want to support that C API so it will work for Linux as well. This library shim links to the build in Accelerate Framework for high performance math on macOS.
 
 ## Documentation
 
