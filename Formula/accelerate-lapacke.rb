@@ -20,10 +20,10 @@ class AccelerateLapacke < Formula
   def install
     # Force compilers recommended by documentation
     ENV["CC"] = "/usr/bin/cc"
-    ENV["FC"] = "#{Formula["gcc"].opt_bin}/gfortran"
+    ENV["FC"] = "#{formula_opt_bin("gcc")}/gfortran"
 
     # Define resource mapping directory
-    dep_source = Formula["ekrich/tools/accelerate-lapack"].opt_prefix.to_s
+    dep_source = formula_opt_prefix("ekrich/tools/accelerate-lapack").to_s
     lapack_src = (buildpath/"build/_deps/reference-lapack-src").to_s
 
     # Force create the directory stack so the unzipper satisfies local path checks
@@ -34,12 +34,12 @@ class AccelerateLapacke < Formula
     # and multiline variations cleanly across different versions of the source code.
     inreplace "src/CMakeLists.txt" do |s|
       s.gsub!(/FetchContent_Declare\s*\(\s*["']?reference-lapack["']?.*?\)/m, "")
-      s.gsub!(/FetchContent_MakeAvailable\s*\(\s*["']?reference-lapack["']?\s*\)/, 
+      s.gsub!(/FetchContent_MakeAvailable\s*\(\s*["']?reference-lapack["']?\s*\)/,
               "add_subdirectory(#{lapack_src} ${CMAKE_CURRENT_BINARY_DIR}/reference-lapack-build)")
     end
 
     # Dynamically find the config directory regardless of the version suffix
-    cmake_dir = Dir.glob("#{dep_source}/share/cmake/AccelerateLAPACK*").first
+    Dir.glob("#{dep_source}/share/cmake/AccelerateLAPACK*").first
 
     manual_cmake_args = %W[
       -DCMAKE_INSTALL_PREFIX=#{prefix}
@@ -58,9 +58,7 @@ class AccelerateLapacke < Formula
     system "cmake", "--install", "build", "--prefix", prefix.to_s
   end
 
-
   test do
-    assert_predicate lib/"liblapacke.dylib", :exist?
+    assert_path_exists lib/"liblapacke.dylib"
   end
 end
-
