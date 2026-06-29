@@ -5,6 +5,14 @@ class AccelerateLapack < Formula
   sha256 "8f1b47cf2ed255b22d5204218ec27466d4187b383b50daa5aeb55de4f0360cc5"
   license "MIT"
 
+  depends_on :macos
+
+  on_macos do
+    if MacOS.version < "13.3"
+      odie "This formula requires macOS Ventura 13.3 or newer for LAPACK 3.9.1+ support."
+    end
+  end
+
   depends_on "cmake" => :build
 
   def install

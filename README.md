@@ -2,6 +2,8 @@
 
 Currently this repo has a formula for the upstream [lepus2589/accelerate-lapack](https://github.com/lepus2589/accelerate-lapack)
 
+This formula only supports macOS 26 and LAPACK `3.12.x`. It should support from Ventura 13.3 with LAPACK `3.9.1` including these runners `os: [macos-14, macos-15, macos-15-intel]`. macOS 15 should support LAPACK `3.11.0`
+
 ## How do I install these formulae?
 
 `brew install ekrich/tools/<formula>`
