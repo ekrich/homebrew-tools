@@ -5,7 +5,7 @@ class AccelerateLapacke < Formula
   sha256 "532ab84fda3f0fb17abbe2a1752aedfe4299d95ebd5610f30608f993841236b7"
   license "MIT"
 
-  # Keep standard environment as requested
+  # Keep standard environment to avoid issues with CMake and Fortran compilers
   env :std
 
   depends_on "cmake" => :build
