@@ -5,6 +5,12 @@ class AccelerateLapacke < Formula
   sha256 "532ab84fda3f0fb17abbe2a1752aedfe4299d95ebd5610f30608f993841236b7"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/ekrich/homebrew-tools/releases/download/accelerate-lapacke-2.0.0"
+    rebuild 1
+    sha256 cellar: :any, arm64_tahoe: "0584565b9075422f0b562ed7cea0548a29704bf3da7e290e6f9ee2a359f3929e"
+  end
+
   # Keep standard environment to avoid issues with CMake and Fortran compilers
   env :std
 
