@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         # Only run on environments that include the modern LAPACK 3.12.0 SDK
-        os: [macos-26, macos-26-intel]
+        os: [macos-26]
     runs-on: ${{ matrix.os }}
     permissions:
       actions: read
